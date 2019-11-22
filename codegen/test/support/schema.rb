@@ -118,7 +118,7 @@ module Support
       query QueryType
       mutation MutationType
       orphan_types [StringEntryType, IntegerEntryType]
-      resolve_type ->(obj, ctx) {}
+      resolve_type ->(type, obj, ctx) {}
     end
 
     MinimalQueryType = GraphQL::ObjectType.define do
@@ -129,7 +129,7 @@ module Support
 
     MinimalSchema = GraphQL::Schema.define do
       query MinimalQueryType
-      resolve_type ->(obj, ctx) {}
+      resolve_type ->(type, obj, ctx) {}
     end
 
     def self.introspection_result(schema = ExampleSchema)

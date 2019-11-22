@@ -7,7 +7,6 @@ schema = GraphQLSchema.new(JSON.parse(introspection_result))
 
 GraphQLJavaGen.new(schema,
   package_name: "com.adobe.cq.commerce.magento.graphql",
-  license_header_file: "./License.erb",
   nest_under: 'Schema', # Not used, but must be defined
   custom_scalars: [
     GraphQLJavaGen::Scalar.new(

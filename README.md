@@ -35,7 +35,6 @@ schema = GraphQLSchema.new(JSON.parse(introspection_result))
 
 GraphQLJavaGen.new(schema,
   package_name: "com.example.myapp", # The Java package of the generated classes
-  license_header_file: "./License.erb", # The license header that will be added to all Java files
   nest_under: 'Schema', # Not used, but must be defined
   custom_scalars: [
     GraphQLJavaGen::Scalar.new(
