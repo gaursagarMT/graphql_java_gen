@@ -11,7 +11,7 @@ class GraphQLJavaGen
 
   def initialize(schema,
     package_name:, nest_under:, script_name: 'graphql_java_gen gem',
-    custom_scalars: [], custom_annotations: [], include_deprecated: false, :
+    custom_scalars: [], custom_annotations: [], include_deprecated: false
   )
     @schema = schema
     @schema_name = nest_under
