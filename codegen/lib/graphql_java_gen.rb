@@ -11,7 +11,7 @@ class GraphQLJavaGen
 
   def initialize(schema,
     package_name:, nest_under:, script_name: 'graphql_java_gen gem',
-    custom_scalars: [], custom_annotations: [], include_deprecated: false, license_header_file:
+    custom_scalars: [], custom_annotations: [], include_deprecated: false, :
   )
     @schema = schema
     @schema_name = nest_under
@@ -22,7 +22,6 @@ class GraphQLJavaGen
     @annotations = custom_annotations
     @imports = (@scalars.values.map(&:imports) + @annotations.map(&:imports)).flatten.sort.uniq
     @include_deprecated = include_deprecated
-    @license_header_file = license_header_file
   end
 
   def save(path)
@@ -360,12 +359,6 @@ class GraphQLJavaGen
     text.gsub!( /(\S{#{col_width}})(?=\S)/, '\1 ' )
     text.gsub!( /(.{1,#{col_width}})(?:\s+|$)/, "\\1\n" )
     text
-  end
-
-  def render_license
-    content = File.read(File.expand_path(@license_header_file))
-    t = ERB.new(content)
-    t.result(binding)
   end
 
 end

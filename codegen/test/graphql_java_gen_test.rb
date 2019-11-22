@@ -24,7 +24,6 @@ class GraphQLJavaGenTest < Minitest::Test
   def required_args
     {
       package_name: "com.example.MyApp",
-      license_header_file: "../License.erb",
       nest_under: 'ExampleSchema',
     }
   end
