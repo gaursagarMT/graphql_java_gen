@@ -1,4 +1,4 @@
-// Generated from <%= script_name %>
+<%= render_license %>
 
 package <%= package_name %>;
 
@@ -9,7 +9,7 @@ import com.google.gson.JsonObject;
 import com.shopify.graphql.support.AbstractResponse;
 import com.shopify.graphql.support.Arguments;
 import com.shopify.graphql.support.Error;
-import com.shopify.graphql.support.Query;
+import com.shopify.graphql.support.AbstractQuery;
 import com.shopify.graphql.support.SchemaViolationError;
 import com.shopify.graphql.support.TopLevelResponse;
 import com.shopify.graphql.support.Input;
@@ -74,7 +74,7 @@ public class <%= schema_name %> {
             }
 
             <%= java_doc(type) %>
-            public static class <%= type.name %>Query extends Query<<%= type.name %>Query> {
+            public static class <%= type.name %>Query extends AbstractQuery<<%= type.name %>Query> {
                 <%= type.name %>Query(StringBuilder _queryBuilder) {
                     super(_queryBuilder);
                     <% if type.object? && type.implement?("Node") %>

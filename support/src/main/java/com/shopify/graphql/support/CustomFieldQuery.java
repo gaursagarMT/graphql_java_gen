@@ -1,5 +1,4 @@
 /**
- * Copyright 2015 Shopify
  * Copyright 2019 Adobe
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a
@@ -22,11 +21,22 @@
 
 package com.shopify.graphql.support;
 
-/**
- * Created by dylansmith on 2015-11-24.
- */
-public class InvalidGraphQLException extends Exception {
-    public InvalidGraphQLException(String message) {
-        super(message);
+public class CustomFieldQuery extends AbstractQuery<CustomFieldQuery> {
+
+    public CustomFieldQuery(StringBuilder _queryBuilder) {
+        super(_queryBuilder);
+    }
+
+    /**
+     * Adds a standard "non-custom" field to the query. This method is typically used to specify
+     * the fields of a custom object field that has an existing GraphQL type that can already be
+     * parsed by the library.
+     * 
+     * @param fieldName The name of the field that will be added to the GraphQL query.
+     * @return The current query builder.
+     */
+    public CustomFieldQuery addField(String fieldName) {
+        startField(fieldName);
+        return this;
     }
 }
