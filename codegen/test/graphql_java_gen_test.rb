@@ -7,12 +7,12 @@ class GraphQLJavaGenTest < Minitest::Test
 
   def test_default_script_name
     output = GraphQLJavaGen.new(MINIMAL_SCHEMA, **required_args).generate
-    assert_match %r{.*This file is licensed to you under the Apache License.*}, output
+    assert_match %r{.*package com.example.MyApp.*}, output
   end
 
   def test_script_name_option
     output = GraphQLJavaGen.new(MINIMAL_SCHEMA, script_name: 'script/update_schema', **required_args).generate
-    assert_match %r{.*This file is licensed to you under the Apache License.*}, output
+    assert_match %r{.*package com.example.MyApp.*}, output
   end
 
   def test_generate
